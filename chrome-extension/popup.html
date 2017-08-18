@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+<head>
+  <title>Ad Configuration</title>
+  <style>
+   .section {
+       height: 50px;
+   }
+  </style>
+</head>
+<body>
+  <div class="section">
+    <div>Choose ad type to insert:</div>
+    <select name="adtype">
+      <option value="video-top">top</option>
+      <option value="video-native">native</option>
+      <option value="video-impressive">impressive</option>
+      <option value="video-interstitial">interstitial</option>
+      <option value="video-interstitial-embedded">interstitial-embedded</option>
+      <option value="portraitvideo-interstitial">portrait-interstitial</option>
+      <option value="portraitvideo-interstitial-embedded">portrait-interstitial-embedded</option>
+      <option value="demo1">demo1 (transform)</option>
+      <option value="demo2">demo2 (flip interstitial)</option>
+    </select>
+  </div>
+
+  <div class="section">
+    <div>Given CSS selector, ad will be inserted after the element:</div>
+    <input name="el-selector">
+  </div>
+
+  <div class="section">
+    <br>
+    <button id="insert-btn">Insert Ad</button>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

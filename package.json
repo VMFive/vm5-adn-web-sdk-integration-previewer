@@ -1,0 +1,10 @@
+{
+  "name": "vm5-adn-web-sdk-integration-previewer",
+  "version": "0.0.1",
+  "description": "SDK integration made easy",
+  "main": "index.js",
+  "scripts": {
+  },
+  "author": "cades kao",
+  "license": "ISC"
+}
