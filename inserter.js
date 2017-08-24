@@ -1,11 +1,17 @@
 console.log('inserter loaded!')
 
 chrome.runtime.onMessage.addListener(function(msg, sender, response) {
-  if (msg.from === 'popup' && msg.subject === 'insert-ad') {
+  if (msg.from === 'popup' && msg.subject === 'user-select') {
     console.log("msg received: ", msg);
     getElementSelector(selector => {
       insertAd(msg.adType, selector);
     })
+    response();
+  }
+
+  if (msg.from === 'popup' && msg.subject === 'custom-selector') {
+    console.log("msg received: ", msg);
+    insertAd(msg.adType, msg.selector);
     response();
   }
 }, false);
