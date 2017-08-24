@@ -3,8 +3,10 @@
   "version": "0.0.1",
   "description": "SDK integration made easy",
   "main": "index.js",
-  "scripts": {
-  },
+  "scripts": {},
   "author": "cades kao",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "optimal-select": "4.0.1"
+  }
 }

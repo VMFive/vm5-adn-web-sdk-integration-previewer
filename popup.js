@@ -9,9 +9,9 @@ window.addEventListener('DOMContentLoaded', function () {
           from: 'popup',
           subject: 'insert-ad',
           adType: document.getElementsByName('adtype')[0].value,
-          selector: document.getElementsByName('el-selector')[0].value,
         },
       );
+      window.close();
     });
   });
 });

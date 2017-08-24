@@ -7,7 +7,11 @@
   "content_scripts": [
     {
       "matches": ["http://*/*", "https://*/*"],
-      "js": ["inserter.js"]
+      "js": [
+        "node_modules/css-selector-generator/build/css-selector-generator.min.js",
+        "node_modules/optimal-select/dist/optimal-select.min.js",
+        "inserter.js"
+      ]
     }
   ],
 

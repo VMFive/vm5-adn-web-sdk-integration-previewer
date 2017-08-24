@@ -3,7 +3,9 @@ console.log('inserter loaded!')
 chrome.runtime.onMessage.addListener(function(msg, sender, response) {
   if (msg.from === 'popup' && msg.subject === 'insert-ad') {
     console.log("msg received: ", msg);
-    insertAd(msg.adType, msg.selector);
+    getElementSelector(selector => {
+      insertAd(msg.adType, selector);
+    })
     response();
   }
 }, false);
@@ -37,3 +39,32 @@ function createNodeFromString(str) {
   node.innerHTML = str;
   return node.firstChild;
 }
+
+
+function getElementSelector(cb) {
+  document.addEventListener('mouseover', function findElementToInsertAd(e) {
+    console.warn(OptimalSelect.select(e.target))
+    const elem = e.target;
+    const originalBorder = elem.style.border;
+    elem.style.border = 'solid 2px red';
+
+    elem.addEventListener('click', onClick);
+    elem.addEventListener('mouseout', cleanupNode);
+
+    function onClick() {
+      elem.style.border = originalBorder;
+      cleanupNode();
+      document.removeEventListener('mouseover', findElementToInsertAd);
+      const selector = OptimalSelect.select(elem)
+      cb(selector);
+    }
+
+    function cleanupNode() {
+      elem.style.border = originalBorder;
+      elem.removeEventListener('mouseout', cleanupNode);
+      elem.removeEventListener('click', onClick);
+    }
+  })
+}
+
+console.warn(OptimalSelect.select);
